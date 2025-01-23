@@ -13,7 +13,7 @@ function index(req,res){
 
 function show(req,res){
     const id=parseInt(req.params.id);
-    const sql = "SELECT title,author,abstract,image FROM db_books.books WHERE `id` = ?";
+    const sql = "SELECT * FROM db_books.reviews JOIN  `books`ON `reviews`.`book_id`= `books`.`id` WHERE `book_id` = ?";
     console.log(sql, "id singolo")
 
     db_connection.query(sql,[id], (err,results) =>{
