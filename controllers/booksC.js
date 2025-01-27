@@ -1,7 +1,7 @@
 import db_connection from "../db.js";
 
 function index(req,res){
-    const sql= "SELECT title, author, image FROM db_books.books"
+    const sql= "SELECT id,title, author, image FROM db_books.books"
     console.log(sql, "index")
     db_connection.query(sql,(err,results) =>{
         if(err){
