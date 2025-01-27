@@ -21,7 +21,7 @@ function show(req,res){
             return res.status(500).json({error: "Query fail"}) 
         }
         
-        const book = { ...results[0] }; // Primo risultato contiene le informazioni del libro
+        const book = { ...results[0] }; 
         book.reviews = results.map(review => ({
             id: review.id,
             name: review.name,
