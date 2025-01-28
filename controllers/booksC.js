@@ -37,4 +37,18 @@ function show(req,res){
     }) 
 
 }
-export {index,show};
+
+
+function store(req,res) {
+    const {id} = req.params;
+
+    const {text,name,vote} = req.body;
+    const sql= "INSERT INTO reviews (text,name,vote,book_id) VALUES (?,?,?,?)";
+
+    db_connection.query(sql, [text,name,vote,id], (err,results) => {
+        if(err) return res.status(500).json({error: "Database query failed"});
+        res.status(201);
+        res.json({message: "Review added", id: results.insertId})
+    })
+}
+export {index,show, store};
