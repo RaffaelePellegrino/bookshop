@@ -8,5 +8,5 @@ routerBooks.get("/",index);
 
 routerBooks.get("/:id", show)
 
-routerBooks.post("/:id/reviews", store)
+routerBooks.post("/:id", store)
 export default routerBooks;
